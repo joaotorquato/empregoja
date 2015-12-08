@@ -1,1 +1,16 @@
 <h1>Emprego Já</h1>
+
+<h2>Vagas</h2>
+
+<% @jobs.each do |job| %>
+  <section>
+    <dl>
+      <dt>Nome</dt>
+      <dd><%= job.title %></dd>
+      <dt>Empresa</dt>
+      <dd><%= job.company %></dd>
+      <dt>Localização</dt>
+      <dd><%= job.location %></dd>
+    </dl>
+  </section>
+<% end %>
