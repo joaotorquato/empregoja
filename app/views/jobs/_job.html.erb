@@ -2,6 +2,6 @@
 <p><%= job.title %></p>
 <p><%= job.location %></p>
 <p><%= job.company.name %></p>
-<p><%= job.category.name %></p>
+<p><%= link_to job.category.name, job.category %></p>
 <p><%= job.description %></p>
 <%= link_to 'Ver mais', job %>
