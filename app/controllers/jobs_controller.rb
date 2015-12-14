@@ -22,11 +22,12 @@ class JobsController < ApplicationController
 
   def set_companies
     @companies = Company.all
+    @categories = Category.all
   end
 
   def job_params
     params.require(:job)
-      .permit(:title, :location, :category, :description, :featured,
+      .permit(:title, :location, :category_id, :description, :featured,
              :company_id)
   end
 end
