@@ -1,4 +1,5 @@
 class CompaniesController < ApplicationController
+  before_action :set_company, only: [:show,:edit,:update]
   def new
     @company = Company.new
   end
@@ -14,10 +15,25 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @company.update(company_params)
+      redirect_to @company
+    else
+      flash[:warning] = 'Warning! All fields are mandatory.'
+      render :edit
+    end
   end
 
   private
+
+  def set_company
+    @company = Company.find(params[:id])
+  end
 
   def company_params
     params.require(:company).permit(:name, :location, :mail, :phone)
