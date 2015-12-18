@@ -1,27 +1,34 @@
-<section id="jobs">
-  <% @jobs.each do |job| %>
-    <div class="jobs">
-      <h3><%= job.title %></h1>
-      <p><%= job.location %></p>
-      <p><%= job.company.name %></p>
-      <p><%= job.category.name %></p>
-      <% if job.recent? %>
-        <p><em>Novidade</em></p>
-      <% end %>
-      <%= link_to 'Ver mais', job %>
+<div class="row">
+  <div class="col-md-8">
+    <div class="row">
+      <section id="jobs">
+        <% @jobs.each do |job| %>
+        <div class="jobs col-md-6">
+          <h3><%= job.title %></h1>
+            <p><%= job.location %></p>
+            <p><%= job.company.name %></p>
+            <p><%= job.category.name %></p>
+            <% if job.recent? %>
+            <p><em>Novidade</em></p>
+            <% end %>
+            <%= link_to 'Ver mais', job %>
+          </div>
+          <% end %>
+        </section>
+      </div>
     </div>
-  <% end %>
-</section>
-<aside>
-  <% @companies.each do |company| %>
-    <% if company.premium? %>
-      <p><em>Empresa Premium</em></p>
-    <% end %>
-    <%= link_to company.name, company %>
-  <% end %>
-</aside>
-<aside>
-  <% @categories.each do |category| %>
-    <%= link_to category.name, category %>
-  <% end %>
-</aside>
+    <div class="col-md-4">
+      <aside>
+        <h3>Empresa</h3>
+        <% @companies.each do |company| %>
+        <p><%= link_to company.name, company %><% if company.premium? %> - <em>Empresa Premium</em><% end %></p>
+        <% end %>
+      </aside>
+      <aside>
+        <h3>Categorias</h3>
+        <% @categories.each do |category| %>
+        <p><%= link_to category.name, category %></p>
+        <% end %>
+      </aside>
+    </div>
+  </div>

@@ -25,6 +25,7 @@ class JobsController < ApplicationController
     if @job.save
       redirect_to @job
     else
+      flash.now[:error] = "Erro ao cadastrar vaga!"
       render :new
     end
   end

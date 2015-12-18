@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>Emprego Já</h1>
-<%= yield %>
+  <div class="container">
+    <h1>Emprego Já</h1>
+    <hr>
+    <%= render partial: "shared/flash_messages" %>
+    <%= yield %>
+  </div>
 
 </body>
 </html>

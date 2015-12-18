@@ -1,7 +1,21 @@
 <h2><%= @company.name %></h2>
-<hr>
-<p><strong>Localização: </strong><%= @company.location %></p>
-<p><strong>E-mail: </strong><%= @company.mail %></p>
-<p><strong>Telefone: </strong><%= @company.phone %></p>
 
-<%= render @company.jobs %>
+<div class="row">
+  <div class="col-md-3"><strong>Localização:</strong></div>
+  <div class="col-md-3"><%= @company.location %></div>
+</div>
+<div class="row">
+  <div class="col-md-3"><strong>E-mail: </strong></div>
+  <div class="col-md-3"><%= @company.mail %></div>
+</div>
+<div class="row">
+  <div class="col-md-3"><strong>Telefone: </strong></div>
+  <div class="col-md-3"><%= @company.phone %></div>
+</div>
+<hr>
+<h3>Vagas</h3>
+<div class="row">
+  <section id="jobs">
+    <%= render @company.jobs %>
+  </section>
+</div>

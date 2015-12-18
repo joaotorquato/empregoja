@@ -1,25 +1,28 @@
-<div id="errors">
-<% if @job.errors.any? %>
-<ul>
-  <% @job.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
+<%= form_for @job, html: { class: "form-horizontal" }  do |f| %>
+
+<%= render layout: "jobs/field_helper", locals: {form: f, type_field: :title} do %>
+  <%= f.text_field :title, class: "form-control" %>
 <% end %>
-</div>
-<%= form_for @job do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :location %>
-  <%= f.text_field :location %>
-  <%= f.label :company_id %>
-  <%= f.collection_select :company_id, @companies, :id, :name %>
-  <%= f.label :category_id %>
-  <%= f.collection_select :category_id, @categories, :id, :name %>
-  <%= f.text_field :category %>
-  <%= f.label :featured  %>
-  <%= f.check_box :featured  %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.submit submit_text %>
+
+<%= render layout: "jobs/field_helper", locals: {form: f, type_field: :location} do %>
+  <%= f.text_field :location, class: "form-control" %>
+<% end %>
+
+<%= render layout: "jobs/field_helper", locals: {form: f, type_field: :company} do %>
+  <%= f.collection_select :company_id, @companies, :id, :name, {}, class: "form-control" %>
+<% end %>
+
+<%= render layout: "jobs/field_helper", locals: {form: f, type_field: :category} do %>
+  <%= f.collection_select :category_id, @categories, :id, :name, {}, class: "form-control" %>
+<% end %>
+
+<%= render layout: "jobs/field_helper", locals: {form: f, type_field: :featured} do %>
+  <%= f.check_box :featured %>
+<% end %>
+
+<%= render layout: "jobs/field_helper", locals: {form: f, type_field: :description} do %>
+  <%= f.text_area :description, class: "form-control" %>
+<% end %>
+
+<%= f.submit submit_text, :class => 'btn btn-default pull-right' %>
 <% end %>

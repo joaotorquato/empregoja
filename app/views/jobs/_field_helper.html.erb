@@ -1,0 +1,9 @@
+<div class="form-group <%= bootstrap_form_error_class(form.object, type_field) %>">
+  <%= form.label type_field, class: "col-md-2 label-control" %>
+  <div class="col-sm-10">
+    <%= yield %>
+    <% if form.object.errors.messages[type_field].present? %>
+      <span class="help-block"><%= form.object.errors.messages[type_field].first %></span>
+    <% end %>
+  </div>
+</div>

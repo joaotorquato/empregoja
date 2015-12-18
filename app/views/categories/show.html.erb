@@ -1,8 +1,9 @@
-<h1><%= @category.name %></h1>
-<h2>Vagas</h2>
-<% @category.jobs.each do |job| %>
-  <p><%= job.title %></p>
-  <p><%= job.location %></p>
-  <p><%= job.category %></p>
-  <p><%= job.description %></p>
-<% end %>
+<h2><%= @category.name %></h2>
+<hr>
+
+<h3>Vagas</h3>
+<div class="row">
+    <section id="jobs">
+      <%= render @category.jobs %>
+    </section>
+</div>
