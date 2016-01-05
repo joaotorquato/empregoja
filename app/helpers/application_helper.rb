@@ -6,7 +6,7 @@ module ApplicationHelper
         "bg-success"
       when :error
         "bg-danger"
-      when :alert
+      when :alert,:warning
         "bg-warning"
       when :notice
         "bg-info"

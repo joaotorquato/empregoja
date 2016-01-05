@@ -67,7 +67,7 @@ feature 'User creates a new job' do
     click_on 'Criar Vaga'
 
     ['Title', 'Category', 'Description', 'Location'].each do |field|
-      expect(page).to have_content "#{field} can\'t be blank"
+      expect(page).to have_content "can\'t be blank"
     end
   end
 end
